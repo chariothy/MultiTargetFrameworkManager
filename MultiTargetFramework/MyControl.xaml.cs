@@ -19,9 +19,12 @@ namespace Nu.MultiTargetFramework
     /// </summary>
     public partial class MyControl : UserControl
     {
+        private ProjectInfo m_ProjectInfo = new ProjectInfo();
         public MyControl()
         {
             InitializeComponent();
+
+            DataContext = m_ProjectInfo;
         }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Globalization", "CA1300:SpecifyMessageBoxOptions")]
@@ -29,7 +32,7 @@ namespace Nu.MultiTargetFramework
         {
             MessageBox.Show(string.Format(System.Globalization.CultureInfo.CurrentUICulture, "We are inside {0}.button1_Click()", this.ToString()),
                             "Multiple Target Framework");
-
+            m_ProjectInfo.GetProjectInfo();
         }
     }
 }
