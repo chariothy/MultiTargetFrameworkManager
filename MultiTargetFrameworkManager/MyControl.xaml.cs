@@ -12,7 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Nu.MultiTargetFramework
+namespace Nu.Vs.Extension
 {
     /// <summary>
     /// Interaction logic for MyControl.xaml

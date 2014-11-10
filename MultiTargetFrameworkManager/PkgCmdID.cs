@@ -2,7 +2,7 @@
 // MUST match PkgCmdID.h
 using System;
 
-namespace Nu.MultiTargetFramework
+namespace Nu.Vs.Extension
 {
     static class PkgCmdIDList
     {

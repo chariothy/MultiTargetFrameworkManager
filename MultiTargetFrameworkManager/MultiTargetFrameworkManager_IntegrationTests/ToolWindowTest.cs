@@ -42,12 +42,12 @@ namespace MultiTargetFramework_IntegrationTests
         {
             UIThreadInvoker.Invoke((ThreadInvoker)delegate()
             {
-                CommandID toolWindowCmd = new CommandID(Nu.MultiTargetFramework.GuidList.guidMultiTargetFrameworkCmdSet, (int)Nu.MultiTargetFramework.PkgCmdIDList.MultiTargetFramework);
+                CommandID toolWindowCmd = new CommandID(Nu.Vs.Extension.GuidList.guidMultiTargetFrameworkCmdSet, (int)Nu.Vs.Extension.PkgCmdIDList.MultiTargetFramework);
 
                 TestUtils testUtils = new TestUtils();
                 testUtils.ExecuteCommand(toolWindowCmd);
 
-                Assert.IsTrue(testUtils.CanFindToolwindow(new Guid(Nu.MultiTargetFramework.GuidList.guidToolWindowPersistanceString)));
+                Assert.IsTrue(testUtils.CanFindToolwindow(new Guid(Nu.Vs.Extension.GuidList.guidToolWindowPersistanceString)));
 
             });
         }

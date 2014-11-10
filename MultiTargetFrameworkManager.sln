@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiTargetFramework", "MultiTargetFramework\MultiTargetFramework.csproj", "{468AB8CE-0D11-446B-B7BC-13F3499B4B86}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiTargetFrameworkManager", "MultiTargetFrameworkManager\MultiTargetFrameworkManager.csproj", "{468AB8CE-0D11-446B-B7BC-13F3499B4B86}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiTargetFramework_IntegrationTests", "MultiTargetFramework\MultiTargetFramework_IntegrationTests\MultiTargetFramework_IntegrationTests.csproj", "{5AFC3033-32DA-4023-B5B4-262E1AC830D8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiTargetFrameworkManager_IntegrationTests", "MultiTargetFrameworkManager\MultiTargetFrameworkManager_IntegrationTests\MultiTargetFrameworkManager_IntegrationTests.csproj", "{5AFC3033-32DA-4023-B5B4-262E1AC830D8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{881661F9-091A-4A9E-90B3-156C8C07C1B2}"
 	ProjectSection(SolutionItems) = preProject
@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		UnitTests.testsettings = UnitTests.testsettings
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiTargetFramework_UnitTests", "MultiTargetFramework\MultiTargetFramework_UnitTests\MultiTargetFramework_UnitTests.csproj", "{1A547E40-2820-4C82-BBC1-A8AB0BFE096D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiTargetFrameworkManager_UnitTests", "MultiTargetFrameworkManager\MultiTargetFrameworkManager_UnitTests\MultiTargetFrameworkManager_UnitTests.csproj", "{1A547E40-2820-4C82-BBC1-A8AB0BFE096D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

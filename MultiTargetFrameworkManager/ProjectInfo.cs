@@ -8,7 +8,7 @@ using System.ComponentModel;
 using EnvDTE;
 using EnvDTE80;
 
-namespace Nu.MultiTargetFramework
+namespace Nu.Vs.Extension
 {
     public class ProjectInfo : INotifyPropertyChanged
     {

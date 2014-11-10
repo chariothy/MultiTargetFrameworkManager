@@ -2,7 +2,7 @@
 // MUST match guids.h
 using System;
 
-namespace Nu.MultiTargetFramework
+namespace Nu.Vs.Extension
 {
     static class GuidList
     {

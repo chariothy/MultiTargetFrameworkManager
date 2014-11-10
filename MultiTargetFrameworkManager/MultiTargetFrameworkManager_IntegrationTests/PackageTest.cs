@@ -49,7 +49,7 @@ namespace MultiTargetFramework_IntegrationTests
 
                 //Validate package load
                 IVsPackage package;
-                Guid packageGuid = new Guid(Nu.MultiTargetFramework.GuidList.guidMultiTargetFrameworkPkgString);
+                Guid packageGuid = new Guid(Nu.Vs.Extension.GuidList.guidMultiTargetFrameworkPkgString);
                 Assert.IsTrue(0 == shellService.LoadPackage(ref packageGuid, out package));
                 Assert.IsNotNull(package, "Package failed to load");
 
