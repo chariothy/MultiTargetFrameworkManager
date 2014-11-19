@@ -1,0 +1,31 @@
+﻿<Window x:Class="MultiTargetFrameworkManagerApplication.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="6*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Column="0" Grid.Row="0" x:Name="SolutionInfo" Orientation="Horizontal" VerticalAlignment="Center">
+            <TextBlock Text="{Binding Path=Name}" Margin="10"></TextBlock>
+            <ComboBox Margin="10"
+                ItemsSource="{Binding Path=SolutionConfigs}"
+                DisplayMemberPath="Name"
+                SelectedItem="{Binding Path=ActiveConfig}"></ComboBox>
+            <ComboBox Margin="10"
+                      ItemsSource="{Binding Path=SupportedFrameworks}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Path=NugetAbbreviation}"></TextBlock>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+                
+        </StackPanel>
+        <StackPanel Grid.Column="0" Grid.Row="1">
+            <TextBlock Text=" wf"></TextBlock>
+        </StackPanel>
+        
+    </Grid>
+</Window>
