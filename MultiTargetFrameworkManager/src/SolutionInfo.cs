@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using System.ComponentModel;
-using System.Web.Script.Serialization;
 
 using EnvDTE;
 using EnvDTE80;
@@ -15,8 +11,6 @@ namespace Nu.Vs.Extension
 {
     public class SolutionInfo : INotifyPropertyChanged
     {
-        private static string s_frameworkPath = "Frameworks.json";
-
         private EnvDTE80.DTE2 m_dte2 = null;
         private Solution2 m_solution = null;
 
@@ -58,9 +52,9 @@ namespace Nu.Vs.Extension
             {
                 handler(this, new PropertyChangedEventArgs(propertyName));
             }
-        }
+        }        
 
-        public List<FrameworkDefinition> SupportedFrameworks { get; set; }
+        public Dictionary<string, ProjectInfo> SourceProject { get; set; }
 
         public SolutionInfo()
         {
@@ -68,45 +62,33 @@ namespace Nu.Vs.Extension
                     GetActiveObject("VisualStudio.DTE.12.0");
             m_solution = (Solution2)m_dte2.Solution;
 
-            SupportedFrameworks =
-                new List<FrameworkDefinition>
-                {
-                      new FrameworkDefinition("net452", ".NETFramework,Version=v4.5.2"),
-                      new FrameworkDefinition("net451", ".NETFramework,Version=v4.5.1"),
-                      new FrameworkDefinition("net45", ".NETFramework,Version=v4.5"),
-                      new FrameworkDefinition("net40", ".NETFramework,Version=v4.0"),
-                      new FrameworkDefinition("net40-client", ".NETFramework,Version=v4.0,Profile=Client"),
-                      new FrameworkDefinition("net35", ".NETFramework,Version=v3.5"),
-                      new FrameworkDefinition("net35-client", ".NETFramework,Version=v3.5,Profile=Client"),
-                      new FrameworkDefinition("net30", ".NETFramework,Version=v3.0"),
-                      new FrameworkDefinition("net20", ".NETFramework,Version=v2.0")
-                };
         }
 
         public void Load()
         {
-            var serializer = new JavaScriptSerializer();
-            if(File.Exists(s_frameworkPath)) {
-                using (var stream = new StreamReader(s_frameworkPath))
-                {
-                    SupportedFrameworks = serializer.Deserialize<List<FrameworkDefinition>>(stream.ReadToEnd());
-                }
-            }
-            else
-            {
-                using (var stream = new StreamWriter(s_frameworkPath))
-                {
-                    var json = serializer.Serialize(SupportedFrameworks);
-                    var jsonPretty = JSON_PrettyPrinter.Process(json);
-                    stream.Write(jsonPretty);
-                }
-            }
-
             this.m_fullName = m_solution.FullName;
             this.m_name = Path.GetFileName(this.m_fullName);
             foreach (SolutionConfiguration config in m_solution.SolutionBuild.SolutionConfigurations)
             {
                 this.m_solutionConfigs.Add(config);
+            }
+
+            SourceProject = new Dictionary<string, ProjectInfo>();
+            foreach (Project proj in m_solution.Projects)
+            {
+                bool isSourceProject = true;
+                foreach (FrameworkDefinition def in MtfSetting.Instance.SupportedFrameworks)
+                {
+                    if (proj.Name.ToLower().EndsWith(MtfSetting.Instance.Separator + def.NugetAbbreviation))
+                    {
+                        isSourceProject = false;
+                        break;
+                    }
+                }
+                if (isSourceProject)
+                {
+                    SourceProject[proj.Name] = new ProjectInfo(proj);
+                }
             }
         }
 

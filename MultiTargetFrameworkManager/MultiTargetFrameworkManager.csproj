@@ -66,6 +66,9 @@
     <Reference Include="System.Xml" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="VSLangProj, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="System.Xaml" />
   </ItemGroup>
@@ -117,11 +120,12 @@
     <Compile Include="MyToolWindow.cs" />
     <Compile Include="Guids.cs" />
     <Compile Include="src\NugetHelper.cs" />
-    <Compile Include="src\ProjectConfig.cs" />
+    <Compile Include="src\NuPackageInfo.cs" />
+    <Compile Include="src\ProjectConfigInfo.cs" />
     <Compile Include="src\ProjectInfo.cs" />
-    <Compile Include="src\ProjectItem.cs" />
+    <Compile Include="src\ProjectItemInfo.cs" />
     <Compile Include="src\ProjectProperty.cs" />
-    <Compile Include="src\ProjectReference.cs" />
+    <Compile Include="src\ProjectReferenceInfo.cs" />
     <Compile Include="Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -132,7 +136,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PkgCmdID.cs" />
     <Compile Include="src\MtfManagerSetting.cs" />
-    <Compile Include="src\SolutionConfig.cs" />
+    <Compile Include="src\MtfSetting.cs" />
+    <Compile Include="src\SolutionConfigInfo.cs" />
     <Compile Include="src\SolutionInfo.cs" />
   </ItemGroup>
   <ItemGroup>

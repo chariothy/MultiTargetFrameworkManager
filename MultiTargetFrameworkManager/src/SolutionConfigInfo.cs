@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Nu.Vs.Extension
 {
-    class SolutionConfig
+    class SolutionConfigInfo
     {
         private string m_activeConfig;
 

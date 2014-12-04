@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Nu.Vs.Extension
 {
-    class ProjectItem
+    class NuPackageInfo
     {
+        public string ReleaseNote { get; set; }
     }
 }

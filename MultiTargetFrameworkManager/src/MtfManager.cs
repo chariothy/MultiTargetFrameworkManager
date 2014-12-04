@@ -24,5 +24,23 @@ namespace Nu.Vs.Extension
         {
             m_solutionInfo.Load();
         }
+
+        public static string GetRelativePath(string filespec, string folder)
+        {
+            const string directorySeparatorChar = "\\";
+            Uri pathUri = new Uri(filespec);
+
+            if (!folder.EndsWith(directorySeparatorChar))
+            {
+                folder += directorySeparatorChar;
+            }
+            Uri folderUri = new Uri(folder);
+            return Uri.UnescapeDataString(folderUri.MakeRelativeUri(pathUri).ToString().Replace("/", directorySeparatorChar));
+        }
+
+        public static string AddDefineContant(string definedConstants, FrameworkDefinition frameworkDefinition)
+        {
+            return definedConstants;
+        }
     }
 }

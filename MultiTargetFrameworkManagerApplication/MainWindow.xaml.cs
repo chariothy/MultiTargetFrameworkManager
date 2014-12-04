@@ -27,7 +27,21 @@ namespace MultiTargetFrameworkManagerApplication
         {
             InitializeComponent();
 
-            SolutionInfo.DataContext = m_mtfManager.SolutionInfo;
+            SolutionInfoGrid.DataContext = m_mtfManager.SolutionInfo;
+            SupportedFrameworksComboBox.DataContext = MtfSetting.Instance;
+        }
+
+        private void SupportedFrameworksComboBox_DropDownClosed(object sender, EventArgs e)
+        {
+            var comboBox = sender as ComboBox;
+            if (comboBox != null)
+            {
+                var setting = comboBox.DataContext as MtfSetting;
+                if (setting != null)
+                {
+                    comboBox.Text = setting.SelectedFramework;
+                }
+            }
         }
     }
 }
