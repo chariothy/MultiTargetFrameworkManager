@@ -40,6 +40,8 @@ namespace Nu.Vs.Extension
             }
         }
 
+        
+
         static MtfSetting()
         {
             var serializer = new JavaScriptSerializer();
@@ -60,6 +62,9 @@ namespace Nu.Vs.Extension
                 }
             }
         }
+
+        
+
         public MtfSetting()
         {
             Separator = '_';

@@ -11,7 +11,7 @@ namespace Nu.Vs.Extension
 {
     public class MtfManager
     {
-        private SolutionInfo m_solutionInfo = new SolutionInfo();
+        private SolutionInfo m_solutionInfo = null;// new SolutionInfo();
 
         public SolutionInfo SolutionInfo
         {
@@ -22,7 +22,6 @@ namespace Nu.Vs.Extension
 
         public MtfManager()
         {
-            m_solutionInfo.Load();
         }
 
         public static string GetRelativePath(string filespec, string folder)
@@ -38,7 +37,7 @@ namespace Nu.Vs.Extension
             return Uri.UnescapeDataString(folderUri.MakeRelativeUri(pathUri).ToString().Replace("/", directorySeparatorChar));
         }
 
-        public static string AddDefineContant(string definedConstants, FrameworkDefinition frameworkDefinition)
+        public static string AddDefineConstants(string definedConstants, FrameworkDefinition frameworkDefinition)
         {
             return definedConstants;
         }

@@ -27,7 +27,7 @@ namespace MultiTargetFrameworkManagerApplication
         {
             InitializeComponent();
 
-            SolutionInfoGrid.DataContext = m_mtfManager.SolutionInfo;
+            OpenedSolutionListBox.ItemsSource = SolutionInfo.GetOpenedSolutions();            
             SupportedFrameworksComboBox.DataContext = MtfSetting.Instance;
         }
 
@@ -41,6 +41,18 @@ namespace MultiTargetFrameworkManagerApplication
                 {
                     comboBox.Text = setting.SelectedFramework;
                 }
+            }
+        }
+
+        private void OpenedSolutionListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var comboBox = e.Source as ComboBox;
+
+            if (comboBox != null)
+            {
+                var selectedSolution = comboBox.SelectedItem as SolutionInfo;
+                selectedSolution.Initialize();
+                SolutionInfoGrid.DataContext = selectedSolution;
             }
         }
     }

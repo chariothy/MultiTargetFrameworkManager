@@ -12,5 +12,10 @@ namespace Nu.Vs.Extension
         public string OutputPath { get; set; }
         public string DefineConstants { get; set; }
         public string PlatformTarget { get; set; }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

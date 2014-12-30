@@ -31,6 +31,17 @@ namespace Nu.Vs.Extension
 
         }
 
+        public FrameworkDefinition(FrameworkDefinition rhs)
+            :this(rhs.NugetAbbreviation, rhs.TargetFramework, rhs.Selected)
+        {
+
+        }
+
+        public FrameworkDefinition Clone()
+        {
+            return new FrameworkDefinition(this);
+        }
+
         public FrameworkDefinition(string nugetAbbr, string targetFramework, bool selected)
         {
             NugetAbbreviation = nugetAbbr;
